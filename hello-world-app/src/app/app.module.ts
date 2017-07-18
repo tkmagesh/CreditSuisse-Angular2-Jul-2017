@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -10,6 +12,7 @@ import { GreeterComponent } from './greeter/greeter.component';
     GreeterComponent
   ],
   imports: [
+  	FormsModule,
     BrowserModule
   ],
   providers: [],
