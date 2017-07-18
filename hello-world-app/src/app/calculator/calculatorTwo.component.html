@@ -1,0 +1,12 @@
+<h1>Calculator-Two</h1>
+<hr>
+<input type="number" [(ngModel)]="model.number1" >
+<select [(ngModel)]="operation" >
+	<option value="add">Add</option>
+	<option value="subtract">Subtract</option>
+	<option value="multiply">Multiply</option>
+	<option value="divide">Divide</option>
+</select>
+<input type="number" [(ngModel)]="model.number2" >
+<input type="button" value="Calculate" (click)="calculate()">
+<div>{{model.result}}</div>
