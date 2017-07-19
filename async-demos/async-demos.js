@@ -31,7 +31,7 @@ var app = (function(){
 		});
 	}
 
-	/* Async */
+	/* Async - Events*/
 	var addAsyncEvents = (function(){
 		var _callbacks = [];
 		function process(x,y){
@@ -51,9 +51,24 @@ var app = (function(){
 		}
 	})();
 
+	/* Async - Promise */
+	function addAsyncPromise(x,y){
+		console.log(`	[@Service] processing ${x} and ${y}`);
+		var promise = new Promise(function(resolveFn, rejectFn){
+			setTimeout(function(){
+				var result = x + y;
+				console.log(`	[@Service] returning the result`);
+				resolveFn(result);
+			}, 4000);
+		});
+		return promise;
+	}
+
+
 	return {
 		addSyncClient : addSyncClient,
 		addAsyncCallbackClient : addAsyncCallbackClient,
-		addAsyncEvents : addAsyncEvents
+		addAsyncEvents : addAsyncEvents,
+		addAsyncPromise : addAsyncPromise
 	}
 })();
