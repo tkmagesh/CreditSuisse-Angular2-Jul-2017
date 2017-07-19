@@ -1,8 +1,9 @@
 import { IBug } from '../models/IBug';
 
 export class BugOperationsService{
-	createNew (newBugName : string) : IBug {
+	createNew (id : number, newBugName : string) : IBug {
 		let newBug : IBug = {
+			id : id,
 			name : newBugName,
 			isClosed : false,
 			createdAt : new Date()

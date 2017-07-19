@@ -7,24 +7,28 @@ import { BugTrackerComponent } from './bug-tracker/bugTracker.component';
 
 //Services
 import { BugOperationsService } from './bug-tracker/services/bugOperations.service';
+import { BugStorageService } from './bug-tracker/services/bugStorage.service';
 
 //Pipes
 import { TrimTextPipe } from './bug-tracker/pipes/trimText.pipe';
 import { SortPipe } from './bug-tracker/pipes/sort.pipe';
+import { ElapsedPipe } from './bug-tracker/pipes/elapsed.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     BugTrackerComponent,
     TrimTextPipe,
-    SortPipe
+    SortPipe,
+    ElapsedPipe
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
   providers: [
-  	BugOperationsService
+  	BugOperationsService,
+    BugStorageService
   ],
   bootstrap: [AppComponent]
 })
