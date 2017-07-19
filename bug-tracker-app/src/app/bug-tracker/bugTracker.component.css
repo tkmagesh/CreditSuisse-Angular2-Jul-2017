@@ -2,13 +2,14 @@
 section{
 	margin-bottom: 10px;
 }
+
 .closed{
 	color : red;
 	text-decoration: line-through;
 	font-style: italic;
 	font-weight: bold;
 }
-.bugname, .stats{
+.bugname{
 	font-size: 22pt;
 }
 .bugname{

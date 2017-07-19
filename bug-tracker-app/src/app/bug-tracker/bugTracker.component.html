@@ -1,10 +1,6 @@
 <h1>Bug Tracker</h1>
 <hr>
-<section class="stats">
-	<span class="closed">{{bugs | closedCount}}</span>
-	<span> / </span>
-	<span>{{bugs.length}}</span>
-</section>
+<bug-stats [data]="bugs"></bug-stats>
 <section class="sort">
 	<label for="">Order By :</label>
 	<select [(ngModel)]="bugSortBy">
@@ -15,11 +11,7 @@
 	<label for="">Descending ? :</label>
 	<input type="checkbox" [(ngModel)]="bugSortDescending">
 </section>
-<section class="edit">
-	<label for="">Bug Name :</label>
-	<input type="text" [(ngModel)]="newBugName">
-	<input type="button" value="Create" (click)="onCreateClick()">
-</section>
+<bug-edit (newbug)="onNewBugAdded($event)" ></bug-edit>
 <section class="list">
 	<ol>
 		<li *ngFor="let bug of ( bugs | sort:bugSortBy:bugSortDescending )">
