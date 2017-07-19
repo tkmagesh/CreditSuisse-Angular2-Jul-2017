@@ -30,9 +30,10 @@ export class BugStorageService{
 		this.save(newBug);
 		return newBug;
 	}
-	toggle(bug : IBug) : void{
-		this.bugOperations.toggle(bug);
-		this.save(bug);
+	toggle(bug : IBug) : IBug {
+		let toggledBug = this.bugOperations.toggle(bug);
+		this.save(toggledBug);
+		return toggledBug;
 	}
 	remove(bug : IBug) : void{
 		this.storage.removeItem(bug.id.toString());

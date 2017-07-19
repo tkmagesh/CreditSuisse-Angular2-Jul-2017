@@ -12,18 +12,20 @@ export class BugTrackerComponent{
 	bugs : IBug[] = [];
 	bugSortBy : string = '';
 	bugSortDescending : boolean = false;
+	newBugName : string = '';
 
 	constructor(private bugStorage : BugStorageService){
 		this.bugs = this.bugStorage.getAll();
 	}
 
-	onCreateClick(newBugName : string){
-		let newBug = this.bugStorage.addNew(newBugName);
-		this.bugs.push(newBug);
+	onCreateClick(){
+		let newBug = this.bugStorage.addNew(this.newBugName);
+		this.bugs = [...this.bugs, newBug];
 	}
 
-	onBugClick(bug : IBug){
-		this.bugStorage.toggle(bug);
+	onBugClick(bugToToggle : IBug){
+		let toggledBug = this.bugStorage.toggle(bugToToggle);
+		this.bugs = this.bugs.map(bug => bug.id === bugToToggle.id ? toggledBug : bug);
 	}
 
 	onRemoveClosedClick(){
@@ -36,6 +38,7 @@ export class BugTrackerComponent{
 	}
 
 	getClosedCount(){
+		console.log('getClosedCount triggered');
 		let result = 0;
 		for(let index = 0; index < this.bugs.length; index++)
 			if (this.bugs[index].isClosed)

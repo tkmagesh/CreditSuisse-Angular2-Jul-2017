@@ -1,6 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import * as moment from 'moment';
-console.log(moment);
 
 @Pipe({
 	name: 'elapsed'
