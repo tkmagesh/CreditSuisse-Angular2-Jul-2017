@@ -1,0 +1,26 @@
+{
+  "bugs": [
+    {
+      "id": 2,
+      "name": "Unable to add a new bug",
+      "isClosed": true,
+      "createdAt": "2017-03-22T10:34:32.520Z"
+    },
+    {
+      "id": 4,
+      "name": "Promises are not promising",
+      "isClosed": false,
+      "createdAt": "2017-06-18T09:54:33.044Z"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Magesh"
+    },
+    {
+      "id": 2,
+      "name": "Suresh"
+    }
+  ]
+}
