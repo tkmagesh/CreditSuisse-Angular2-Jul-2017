@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { IBug } from '../models/IBug';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 import { BugOperationsService } from './bugOperations.service';
 
 @Injectable()
@@ -13,10 +14,11 @@ export class BugServerService{
 	constructor(private http : Http, private bugOperations : BugOperationsService){
 
 	}
-	getAll() : Observable<IBug[]>{
+	getAll() : Promise<IBug[]>{
 		return this.http
 			.get(this.baseUrl)
-			.map(response => response.json());
+			.map(response => response.json())
+			.toPromise();
 	}
 
 	addNew(bugName : string) : Observable<IBug>{

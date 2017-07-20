@@ -15,9 +15,7 @@ export class BugTrackerComponent implements OnInit{
 	newBugName : string = '';
 
 	async ngOnInit(){
-		this.bugServer
-			.getAll()
-			.subscribe(bugs => this.bugs = bugs);
+		this.bugs = await this.bugServer.getAll();
 	}
 
 	constructor(private bugServer : BugServerService){
